@@ -1,0 +1,14 @@
+<launch>
+
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+  <arg name="command_args" value="-d $(find arq_ur5_ezgripper_moveit_config)/launch/ur5_ezgripper_moveit.rviz" />
+
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+	args="$(arg command_args)" output="screen">
+    <rosparam command="load" file="$(find arq_ur5_ezgripper_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+</launch>

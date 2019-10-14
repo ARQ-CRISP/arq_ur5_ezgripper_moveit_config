@@ -1,0 +1,6 @@
+<launch>
+    <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
+  <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
+  <!-- load controller_list -->
+  <rosparam command="load" file="$(find arq_ur5_ezgripper_moveit_config)/config/controllers.yaml"/>
+</launch>
