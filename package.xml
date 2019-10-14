@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+    <package format="2">
+    <name>arq_ur5_ezgripper_moveit_config</name>
+    <version>0.0.1</version>
+    <description>Package containing all config and launch files required to run Moveit! on ARQ's UR5 + EZGripper</description>
+
+    <maintainer email="b.d.denoun@qmul.ac.uk">Brice Denoun</maintainer>
+
+    <license>GPL</license>
+
+    <author email="b.d.denoun@qmul.ac.uk">Brice Denoun</author>
+
+
+    <url type="website">http://moveit.ros.org/</url>
+    <url type="bugtracker">https://github.com/ros-planning/moveit/issues</url>
+    <url type="repository">https://github.com/ros-planning/moveit</url>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <exec_depend>moveit_ros_move_group</exec_depend>
+    <exec_depend>moveit_kinematics</exec_depend>
+    <exec_depend>moveit_planners_ompl</exec_depend>
+    <exec_depend>moveit_ros_visualization</exec_depend>
+    <exec_depend>joint_state_publisher</exec_depend>
+    <exec_depend>robot_state_publisher</exec_depend>
+    <exec_depend>xacro</exec_depend>
+
+</package>
+
