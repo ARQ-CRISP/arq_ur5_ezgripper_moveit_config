@@ -1,4 +1,4 @@
- controller_list:
+controller_list:
   - name: arm_trajectory_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -11,6 +11,7 @@
       - wrist_2_joint
       - wrist_3_joint
 
+# Uncomment the following block when running in simulation / comment it when you run it on the real hardware
   - name: ezgripper_trajectory_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory

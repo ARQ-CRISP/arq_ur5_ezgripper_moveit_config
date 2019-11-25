@@ -154,29 +154,13 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        eg_manipulator:
-          Value: false
-        kinect2_ir_optical_frame:
-          Value: true
         base:
           Value: false
         base_link:
           Value: false
         ee_link:
           Value: false
-        forearm_link:
-          Value: false
-        shoulder_link:
-          Value: false
-        tool0:
-          Value: false
-        upper_arm_link:
-          Value: false
-        wrist_1_link:
-          Value: false
-        wrist_2_link:
-          Value: false
-        wrist_3_link:
+        eg_manipulator:
           Value: false
         ezgripper_finger_L1_1:
           Value: false
@@ -188,7 +172,23 @@ Visualization Manager:
           Value: false
         ezgripper_palm_link:
           Value: false
+        forearm_link:
+          Value: false
+        shoulder_link:
+          Value: false
+        simulated_kinect2:
+          Value: true
+        tool0:
+          Value: false
+        upper_arm_link:
+          Value: false
         world:
+          Value: false
+        wrist_1_link:
+          Value: false
+        wrist_2_link:
+          Value: false
+        wrist_3_link:
           Value: false
       Marker Scale: 1
       Name: TF
@@ -197,8 +197,6 @@ Visualization Manager:
       Show Names: false
       Tree:
         world:
-          kinect2_ir_optical_frame:
-            {}
           base_link:
             base:
               {}
@@ -210,9 +208,18 @@ Visualization Manager:
                       wrist_3_link:
                         ee_link:
                           ezgripper_palm_link:
-                            {}
+                            eg_manipulator:
+                              {}
+                            ezgripper_finger_L1_1:
+                              ezgripper_finger_L2_1:
+                                {}
+                            ezgripper_finger_L1_2:
+                              ezgripper_finger_L2_2:
+                                {}
                         tool0:
                           {}
+          simulated_kinect2:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
