@@ -1,5 +1,10 @@
 <launch>
-    <include file="$(find arq_ur5_ezgripper_moveit_config)/launch/planning_context.launch" />
+    <!-- Specify whether the package is used for simulation or for the real robot -->
+    <arg name="simulation" default="false"/>
+
+    <include file="$(find arq_ur5_ezgripper_moveit_config)/launch/planning_context.launch">
+        <arg name="simulation" value ="$(arg simulation)"/>
+    </include>
 
     <!-- GDB Debug Option -->
     <arg name="debug" default="false" />
@@ -20,7 +25,7 @@
 
     <!-- Planning Functionality -->
     <include ns="move_group" file="$(find arq_ur5_ezgripper_moveit_config)/launch/planning_pipeline.launch.xml">
-        <arg name="pipeline" value="ompl" />
+        <arg name="pipeline" value="ompl"/>
     </include>
 
     <!-- Trajectory Execution Functionality -->
@@ -28,11 +33,12 @@
         <arg name="moveit_manage_controllers" value="true" />
         <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
         <arg name="moveit_controller_manager" value="ur5_ezgripper" unless="$(arg fake_execution)"/>
+        <arg name="simulation" value ="$(arg simulation)"/>
     </include>
 
     <!-- Sensors Functionality -->
     <include ns="move_group" file="$(find arq_ur5_ezgripper_moveit_config)/launch/sensor_manager.launch.xml" if="$(arg allow_trajectory_execution)">
-        <arg name="moveit_sensor_manager" value="ur5_ezgripper" />
+        <arg name="moveit_sensor_manager" value="ur5_ezgripper"/>
     </include>
 
     <!-- Start the actual move_group node/action server -->

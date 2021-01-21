@@ -10,3 +10,10 @@ controller_list:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
+
+  - name: ezgripper_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - ezgripper_knuckle_palm_L1_1

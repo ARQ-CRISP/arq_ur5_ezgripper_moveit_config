@@ -1,6 +1,16 @@
 <launch>
+    <arg name="simulation" default="false"/>
+
     <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
     <arg name="load_robot_description" default="false"/>
+
+    <!-- Get the proper joint limits configuration file according to the simulation argument -->
+    <arg name="joint_limits_config" default="$(find arq_ur5_ezgripper_moveit_config)/config/joint_limits.yaml" unless="$(arg simulation)"/>
+    <arg name="joint_limits_config" default="$(find arq_ur5_ezgripper_moveit_config)/config/joint_limits_simulation.yaml" if="$(arg simulation)"/>
+
+    <!-- Get the proper kinematics configuration file according to the simulation argument -->
+    <arg name="kinematics_config" default="$(find arq_ur5_ezgripper_moveit_config)/config/kinematics.yaml" unless="$(arg simulation)"/>
+    <arg name="kinematics_config" default="$(find arq_ur5_ezgripper_moveit_config)/config/kinematics_simulation.yaml" if="$(arg simulation)"/>
 
     <!-- Set initial_z of the robot to enable to set it on a table -->
     <arg name="initial_x" default="0"/>
@@ -20,12 +30,12 @@
 
     <!-- Load updated joint limits (override information from URDF) -->
     <group ns="$(arg robot_description_name)_planning">
-        <rosparam command="load" file="$(find arq_ur5_ezgripper_moveit_config)/config/joint_limits.yaml"/>
+        <rosparam command="load" file="$(arg joint_limits_config)"/>
     </group>
 
     <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
     <group ns="$(arg robot_description_name)_kinematics">
-        <rosparam command="load" file="$(find arq_ur5_ezgripper_moveit_config)/config/kinematics.yaml"/>
+        <rosparam command="load" file="$(arg kinematics_config)"/>
     </group>
 
 </launch>
