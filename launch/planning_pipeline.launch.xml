@@ -2,9 +2,11 @@
 
   <!-- This file makes it easy to include different planning pipelines;
        It is assumed that all planning pipelines are named XXX_planning_pipeline.launch  -->
-
+  <arg name="simulation" default="false"/>
   <arg name="pipeline" default="ompl" />
 
-  <include file="$(find arq_ur5_ezgripper_moveit_config)/launch/$(arg pipeline)_planning_pipeline.launch.xml" />
+  <include file="$(find arq_ur5_ezgripper_moveit_config)/launch/$(arg pipeline)_planning_pipeline.launch.xml">
+      <arg name="simulation" value="$(arg simulation)"/>
+  </include>
 
 </launch>
