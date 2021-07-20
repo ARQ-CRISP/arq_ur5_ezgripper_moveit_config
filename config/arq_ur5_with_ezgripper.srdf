@@ -24,9 +24,16 @@
     <group name="ezgripper_finger_1">
         <chain base_link="ezgripper_palm_link" tip_link="ezgripper_finger_L1_1" />
     </group>
+    <group name="finger_1">
+        <chain base_link="ezgripper_palm_link" tip_link="ezgripper_finger_L2_1" />
+    </group>
+    <group name="finger_2">
+        <chain base_link="ezgripper_palm_link" tip_link="ezgripper_finger_L2_2" />
+    </group>
 
     <group name="ezgripper">
-        <group name="ezgripper_finger_1" />
+        <group name="finger_1" />
+        <group name="finger_2" />
     </group>
 
     <group name="ezgripper_finger_1_ee">
